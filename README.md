@@ -1,0 +1,1 @@
+# infinite_series_euler
