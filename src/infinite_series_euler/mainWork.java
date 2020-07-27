@@ -1,5 +1,7 @@
 package infinite_series_euler;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
@@ -9,7 +11,7 @@ public class mainWork {
 
     // Aplicando 10 termos no calculo
     public static final int NUM_TERMOS = 15;
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
+    public static void main(String[] args) throws ExecutionException, InterruptedException, IOException {
         //Instanciando um executor do tipo Work Stealing Pool
         ExecutorService executorWork = Executors.newWorkStealingPool();
 
@@ -46,5 +48,9 @@ public class mainWork {
             System.out.print("Execute for :" + end + " milliseconds\n");
             executorWork.shutdown();
         }
+        
+        FileWriter fw = new FileWriter("output_work.txt");  
+        fw.write(String.valueOf(end));   
+        fw.close(); 
     }
 }

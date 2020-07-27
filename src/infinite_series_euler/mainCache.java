@@ -1,5 +1,7 @@
 package infinite_series_euler;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
@@ -7,7 +9,7 @@ import java.util.concurrent.*;
 public class mainCache {
     // Aplicando 10 termos no calculo
     public static final int NUM_TERMOS = 15;
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
+    public static void main(String[] args) throws ExecutionException, InterruptedException, IOException {
         //Instanciando um executor do tipo Work Stealing Pool
         ExecutorService executorCache = Executors.newCachedThreadPool();
 
@@ -44,5 +46,9 @@ public class mainCache {
             System.out.print("Execute for :" + end + " milliseconds\n");
             executorCache.shutdown();
         }
+        
+        FileWriter fw = new FileWriter("output_cache.txt");  
+        fw.write(String.valueOf(end));   
+        fw.close();
     }
 }

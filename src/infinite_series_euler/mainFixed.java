@@ -1,5 +1,7 @@
 package infinite_series_euler;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.*;
 import java.util.List;
@@ -9,7 +11,7 @@ public class mainFixed {
     public static final int NUM_THREADS_FIXED = 30;
     // Aplicando 10 termos no calculo
     public static final int NUM_TERMOS = 15;
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
+    public static void main(String[] args) throws ExecutionException, InterruptedException, IOException {
         //Instanciando um executor do tipo Work Stealing Pool
         ExecutorService executorFixed = Executors.newFixedThreadPool(NUM_THREADS_FIXED);
 
@@ -46,5 +48,9 @@ public class mainFixed {
             System.out.print("Execute for :" + end + " milliseconds\n");
             executorFixed.shutdown();
         }
+        
+        FileWriter fw = new FileWriter("output_fixed.txt");  
+        fw.write(String.valueOf(end));   
+        fw.close();
     }
 }
