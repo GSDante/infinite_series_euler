@@ -6,7 +6,7 @@ import java.util.concurrent.*;
 
 public class mainCache {
     // Aplicando 10 termos no calculo
-    public static final int NUM_TERMOS = 10;
+    public static final int NUM_TERMOS = 15;
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         //Instanciando um executor do tipo Work Stealing Pool
         ExecutorService executorCache = Executors.newCachedThreadPool();
@@ -26,7 +26,7 @@ public class mainCache {
             resultsCache.add(element);
 
         }
-        long end = start - System.currentTimeMillis();
+        long end =  System.currentTimeMillis() - start;
 
         //Finalizando o procedimento com a soma dos termos
         Double soma = Double.valueOf(0);

@@ -6,12 +6,12 @@ import java.util.List;
 
 public class mainFixed {
     // 10 threads para o fixed
-    public static final int NUM_THREADS_FIXED = 10;
+    public static final int NUM_THREADS_FIXED = 30;
     // Aplicando 10 termos no calculo
-    public static final int NUM_TERMOS = 10;
+    public static final int NUM_TERMOS = 15;
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         //Instanciando um executor do tipo Work Stealing Pool
-        ExecutorService executorFixed = Executors.newFixedThreadPool();
+        ExecutorService executorFixed = Executors.newFixedThreadPool(NUM_THREADS_FIXED);
 
         //Instanciando uma lista de futures para realizar a soma mais a frente
         List<Future<Double>> resultsFixed = new ArrayList<Future<Double>>();
@@ -28,7 +28,7 @@ public class mainFixed {
             resultsFixed.add(element);
 
         }
-        long end = start - System.currentTimeMillis();
+        long end =  System.currentTimeMillis() - start;
 
         //Finalizando o procedimento com a soma dos termos
         Double soma = Double.valueOf(0);
