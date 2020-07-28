@@ -8,7 +8,7 @@ import java.util.concurrent.*;
 
 public class mainCache {
     //Número de termos da série
-    public static final int NUM_TERMOS = 15;
+    public static final int NUM_TERMOS = 50;
     public static void main(String[] args) throws ExecutionException, InterruptedException, IOException {
 
         //Inicializando a lista que vai ter o número de threads nos teste a fim de ter o número máximo de threads
@@ -35,7 +35,7 @@ public class mainCache {
             //Inicializando as threads com a pool e utilizando future para compartilhar as informações do cálculo
             for (int i = 0; i < NUM_TERMOS; i++){
                 Callable<Double> calculator = new Serie_calculator(i);
-                Future<Double> element = executorCachef.submit(calculator);
+                Future<Double> element = executorCache.submit(calculator);
                 System.out.print("The current number of thread with Cached is:"+ Thread.activeCount() +"\n");
                 threadsnumber.add(Thread.activeCount());
                 // Adicionando os resultados na lista
@@ -72,7 +72,7 @@ public class mainCache {
         Integer mean_threadsnumber = sum_threadsnumber/threadsnumber.size();
 
         FileWriter fw = new FileWriter("output_cache.txt");
-        fw.write("A média dos experimentos foi: " + String.valueOf(save_result) + "\n");
+        fw.write("O resultado foi: " + String.valueOf(save_result) + "\n");
         fw.write("O tempo médio foi: "+ String.valueOf(mean_times) + " milisegundos\n");
         fw.write("O número de threads foram: " + String.valueOf(mean_threadsnumber) + " threads\n");
         fw.close();

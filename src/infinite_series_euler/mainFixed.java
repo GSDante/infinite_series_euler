@@ -12,7 +12,7 @@ public class mainFixed {
     // Número de threads
     public static final int NUM_THREADS_FIXED = 20;
     //Número de termos da série
-    public static final int NUM_TERMOS = 15;
+    public static final int NUM_TERMOS = 50;
 
     public static void main(String[] args) throws ExecutionException, InterruptedException, IOException {
 
@@ -71,8 +71,8 @@ public class mainFixed {
         }
         Integer mean_threadsnumber = sum_threadsnumber/threadsnumber.size();
 
-        FileWriter fw = new FileWriter("output_fixed.txt");  
-        fw.write("A média dos experimentos foi: " + String.valueOf(save_result) + "\n");
+        FileWriter fw = new FileWriter("output_fixed.txt");
+        fw.write("O resultado foi: " + String.valueOf(save_result) + "\n");
         fw.write("O tempo médio foi: "+ String.valueOf(mean_times) + " milisegundos\n");
         fw.write("O número de threads foram: " + String.valueOf(mean_threadsnumber) + " threads\n");
         fw.close();
