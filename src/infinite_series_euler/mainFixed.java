@@ -9,9 +9,9 @@ import java.util.concurrent.*;
 import java.util.List;
 
 public class mainFixed {
-    // 10 threads para o fixed
+    // Número de threads
     public static final int NUM_THREADS_FIXED = 20;
-    // Aplicando 10 termos no calculo
+    //Número de termos da série
     public static final int NUM_TERMOS = 15;
 
     public static void main(String[] args) throws ExecutionException, InterruptedException, IOException {

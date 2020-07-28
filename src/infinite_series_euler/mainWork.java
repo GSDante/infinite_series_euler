@@ -9,7 +9,7 @@ import java.util.concurrent.*;
 public class mainWork {
 
 
-    // Aplicando 15 termos no calculo
+    //Número de termos da série
     public static final int NUM_TERMOS = 15;
     public static void main(String[] args) throws ExecutionException, InterruptedException, IOException {
         //Inicializando a lista que vai ter o número de threads nos teste a fim de ter o número máximo de threads

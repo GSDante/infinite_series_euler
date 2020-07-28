@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.concurrent.*;
 
 public class mainCache {
-    // Aplicando 10 termos no calculo
+    //Número de termos da série
     public static final int NUM_TERMOS = 15;
     public static void main(String[] args) throws ExecutionException, InterruptedException, IOException {
 
@@ -35,7 +35,7 @@ public class mainCache {
             //Inicializando as threads com a pool e utilizando future para compartilhar as informações do cálculo
             for (int i = 0; i < NUM_TERMOS; i++){
                 Callable<Double> calculator = new Serie_calculator(i);
-                Future<Double> element = executorCache.submit(calculator);
+                Future<Double> element = executorCachef.submit(calculator);
                 System.out.print("The current number of thread with Cached is:"+ Thread.activeCount() +"\n");
                 threadsnumber.add(Thread.activeCount());
                 // Adicionando os resultados na lista
