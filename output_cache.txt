@@ -1,1 +1,3 @@
-13
+A média dos experimentos foi: 2.71828182845823
+O tempo médio foi: 6 milisegundos
+O número de threads foram: 24 threads
