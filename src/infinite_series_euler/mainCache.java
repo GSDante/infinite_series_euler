@@ -20,22 +20,22 @@ public class mainCache {
         //Variavel que irá guardar o resultado
         Double save_result = null;
 
-        //Instanciando um executor do tipo Work Stealing Pool
-        ExecutorService executorCache = Executors.newCachedThreadPool();
+
 
         //Instanciando uma lista de futures para realizar a soma mais a frente
         List<Future<Double>> resultsCache = new ArrayList<Future<Double>>();
         for(int j = 0; j < 10; j++){
             //Instanciando um executor do tipo CachedThreadPool
-            ExecutorService executorCached = Executors.newCachedThreadPool();
+            ExecutorService executorCache = Executors.newCachedThreadPool();
             //Instanciando uma lista de futures para realizar a soma mais a frente
             List<Future<Double>> resultsCached = new ArrayList<Future<Double>>();
             //Inicializando o medidor de tempo
             Long start = Long.valueOf(System.currentTimeMillis());
+
             //Inicializando as threads com a pool e utilizando future para compartilhar as informações do cálculo
             for (int i = 0; i < NUM_TERMOS; i++){
                 Callable<Double> calculator = new Serie_calculator(i);
-                Future<Double> element = executorCached.submit(calculator);
+                Future<Double> element = executorCache.submit(calculator);
                 System.out.print("The current number of thread with Cached is:"+ Thread.activeCount() +"\n");
                 threadsnumber.add(Thread.activeCount());
                 // Adicionando os resultados na lista
